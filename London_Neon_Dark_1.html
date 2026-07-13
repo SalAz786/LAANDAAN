@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>London — July 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080808;
+  --bg2: #0F0F0F;
+  --bg3: #141414;
+  --bg4: #1A1A1A;
+  --pink: #FF0064;
+  --cyan: #00C8FF;
+  --white: #FFFFFF;
+  --grey: #888888;
+  --dimgrey: #444444;
+  --border: rgba(255,255,255,0.06);
+  --border-pink: rgba(255,0,100,0.25);
+  --border-cyan: rgba(0,200,255,0.2);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(8,8,8,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:800;letter-spacing:0.25em;color:var(--white);text-transform:uppercase;}
+.nav-meta{font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.2em;color:var(--dimgrey);text-transform:uppercase;}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;padding:8rem 2.5rem 3rem;}
+.hero-glow-1{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,0,100,0.12),transparent 65%);pointer-events:none;}
+.hero-glow-2{position:absolute;bottom:-50px;left:-50px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,200,255,0.08),transparent 65%);pointer-events:none;}
+.hero-glow-3{position:absolute;top:40%;left:30%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,0,100,0.05),transparent 65%);pointer-events:none;}
+.hero-tag{font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.45em;color:var(--pink);text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.8rem;}
+.hero-tag::before{content:'';display:block;width:20px;height:1px;background:var(--pink);}
+.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(6rem,18vw,14rem);line-height:0.85;letter-spacing:-0.03em;color:var(--white);text-transform:uppercase;margin-bottom:2rem;}
+.hero-title span{display:block;color:var(--pink);}
+.hero-bottom{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:flex-end;}
+.hero-desc{font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--grey);line-height:1.7;max-width:500px;}
+.hero-stats{display:flex;gap:2.5rem;}
+.hero-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;color:var(--pink);line-height:1;display:block;}
+.hero-stat-label{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.25em;color:var(--dimgrey);text-transform:uppercase;display:block;margin-top:0.3rem;}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.35em;color:var(--dimgrey);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:0.5rem;animation:bob 2.5s ease-in-out infinite;}
+.hero-scroll::after{content:'';display:block;width:1px;height:30px;background:linear-gradient(to bottom,var(--pink),transparent);}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(5px);}}
+
+/* TICKER */
+.ticker{background:var(--pink);padding:0.6rem 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-block;animation:ticker 25s linear infinite;}
+.ticker-item{display:inline-block;font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--bg);padding:0 2rem;}
+.ticker-sep{color:rgba(0,0,0,0.3);}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* SECTION */
+.nd-section{padding:5rem 2.5rem;max-width:960px;margin:0 auto;}
+.nd-section-full{padding:5rem 2.5rem;}
+.nd-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:0.58rem;font-weight:600;letter-spacing:0.4em;color:var(--pink);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+.nd-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--pink);}
+.nd-h2{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,4rem);text-transform:uppercase;letter-spacing:-0.02em;color:var(--white);line-height:0.9;margin-bottom:1.5rem;}
+.nd-h2 span{color:var(--pink);}
+.nd-body{font-family:'Inter',sans-serif;font-weight:300;font-size:0.9rem;line-height:1.8;color:var(--grey);max-width:640px;}
+.nd-rule{border:none;border-top:1px solid var(--border);margin:0;}
+
+/* TUBE STRIP */
+.nd-tube{background:var(--bg2);padding:2rem 2.5rem;display:flex;align-items:center;gap:0;overflow-x:auto;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.nd-tube-stop{display:flex;flex-direction:column;align-items:center;flex:1;min-width:80px;position:relative;}
+.nd-tube-stop::after{content:'';position:absolute;top:10px;left:50%;width:100%;height:3px;background:var(--pink);opacity:0.4;z-index:0;}
+.nd-tube-stop:last-child::after{display:none;}
+.nd-tube-dot{width:20px;height:20px;border-radius:50%;background:var(--pink);z-index:1;flex-shrink:0;box-shadow:0 0 12px rgba(255,0,100,0.5);}
+.nd-tube-dot.dim{background:var(--bg4);border:1px solid var(--pink);box-shadow:none;}
+.nd-tube-dot.dest{background:var(--white);box-shadow:0 0 16px rgba(255,255,255,0.3);}
+.nd-tube-name{font-family:'Space Grotesk',sans-serif;font-size:0.48rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--dimgrey);margin-top:0.5rem;text-align:center;line-height:1.3;}
+.nd-tube-name.bright{color:var(--white);}
+
+/* FLIGHTS */
+.nd-flight-stack{display:flex;flex-direction:column;gap:1px;margin-top:2rem;background:var(--border);}
+.nd-flight-row{background:var(--bg2);display:grid;grid-template-columns:80px 1fr 1fr 100px;gap:1.5rem;align-items:center;padding:1.2rem 1.5rem;transition:background 0.2s;}
+.nd-flight-row:hover{background:var(--bg3);}
+.nd-flight-badge{font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;background:var(--bg4);color:var(--white);padding:0.3rem 0.5rem;text-align:center;border:1px solid var(--border);}
+.nd-flight-badge.pink{background:var(--pink);color:var(--bg);border-color:var(--pink);}
+.nd-flight-route{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--white);text-transform:uppercase;letter-spacing:0.05em;}
+.nd-flight-sub{font-family:'Space Grotesk',sans-serif;font-size:0.55rem;letter-spacing:0.1em;color:var(--dimgrey);text-transform:uppercase;margin-top:0.2rem;}
+.nd-flight-detail span{display:block;font-size:0.72rem;color:var(--grey);line-height:1.6;}
+.nd-flight-detail strong{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.2em;color:var(--dimgrey);font-weight:500;text-transform:uppercase;display:block;margin-bottom:0.1rem;}
+.nd-flight-tag{font-family:'Space Grotesk',sans-serif;font-size:0.52rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 0.6rem;text-align:center;border:1px solid var(--border-pink);color:var(--pink);}
+.nd-flight-tag.cyan{border-color:var(--border-cyan);color:var(--cyan);}
+.nd-flight-tag.dim{border-color:var(--border);color:var(--dimgrey);}
+
+/* GATWICK EXPRESS */
+.nd-ge{background:var(--bg2);border:1px solid var(--border-pink);margin-top:1.5rem;padding:1.5rem;display:flex;align-items:center;gap:1.5rem;position:relative;overflow:hidden;}
+.nd-ge::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--pink);}
+.nd-ge-icon{font-size:1.8rem;flex-shrink:0;}
+.nd-ge-label{font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;}
+.nd-ge-desc{font-family:'Inter',sans-serif;font-size:0.75rem;color:var(--grey);line-height:1.5;}
+.nd-ge-time{font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--pink);white-space:nowrap;text-align:right;}
+
+/* ACCOMMODATION */
+.nd-accom-hero{background:var(--bg2);border:1px solid var(--border);margin-top:2rem;overflow:hidden;}
+.nd-accom-svg{width:100%;display:block;}
+.nd-accom-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin-top:1px;}
+.nd-accom-cell{background:var(--bg2);padding:1.2rem 1.5rem;}
+.nd-accom-cell.dark{background:var(--bg3);}
+.nd-accom-label{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--pink);margin-bottom:0.4rem;}
+.nd-accom-val{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:0.2rem;}
+.nd-accom-sub{font-family:'Inter',sans-serif;font-size:0.72rem;color:var(--grey);line-height:1.4;}
+
+/* ITINERARY */
+.nd-itin-row{display:grid;grid-template-columns:80px 1fr;gap:0;border-bottom:1px solid var(--border);transition:background 0.2s;}
+.nd-itin-row:hover{background:rgba(255,0,100,0.02);}
+.nd-itin-row:first-child{border-top:1px solid var(--border);}
+.nd-itin-day{padding:1.5rem 1rem 1.5rem 0;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:flex-start;}
+.nd-itin-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2.5rem;color:rgba(255,0,100,0.2);line-height:1;letter-spacing:-0.03em;}
+.nd-itin-date{font-family:'Space Grotesk',sans-serif;font-size:0.48rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--pink);margin-top:0.4rem;}
+.nd-itin-content{padding:1.5rem 0 1.5rem 1.8rem;}
+.nd-itin-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:0.02em;color:var(--white);margin-bottom:0.6rem;}
+.nd-itin-body{font-family:'Inter',sans-serif;font-weight:300;font-size:0.82rem;color:var(--grey);line-height:1.75;margin-bottom:0.8rem;}
+.nd-itin-body strong{color:var(--white);font-weight:400;}
+.nd-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:0.6rem;}
+.nd-tag{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.55rem;border:1px solid var(--border);color:var(--dimgrey);}
+.nd-tag:nth-child(1){border-color:var(--border-pink);color:rgba(255,0,100,0.7);}
+.nd-event-box{background:rgba(255,0,100,0.05);border:1px solid var(--border-pink);border-left:3px solid var(--pink);padding:0.8rem 1rem;margin:0.8rem 0;}
+.nd-event-star{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--pink);margin-bottom:0.3rem;}
+.nd-event-name{font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;text-transform:uppercase;color:var(--white);margin-bottom:0.2rem;}
+.nd-event-venue{font-family:'Inter',sans-serif;font-size:0.7rem;color:var(--grey);}
+
+/* SPOTS GRID */
+.nd-spots-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:2rem;}
+.nd-spot{background:var(--bg2);padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s;}
+.nd-spot:hover{background:var(--bg3);}
+.nd-spot::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--pink);transition:height 0.3s;}
+.nd-spot:hover::before{height:100%;}
+.nd-spot-type{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--pink);margin-bottom:0.5rem;}
+.nd-spot-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--white);margin-bottom:0.5rem;letter-spacing:0.02em;}
+.nd-spot-desc{font-family:'Inter',sans-serif;font-size:0.78rem;color:var(--grey);line-height:1.65;}
+.nd-spot-meta{font-family:'Space Grotesk',sans-serif;font-size:0.58rem;color:var(--dimgrey);margin-top:0.7rem;}
+
+/* CONFIRMED EVENTS BANNER */
+.nd-events-banner{background:var(--bg2);border:1px solid var(--border-pink);margin-bottom:2rem;overflow:hidden;}
+.nd-events-header{background:var(--pink);padding:0.6rem 1.2rem;font-family:'Syne',sans-serif;font-size:0.58rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:var(--bg);}
+.nd-event-row{padding:1rem 1.2rem;border-bottom:1px solid rgba(255,0,100,0.08);}
+.nd-event-row:last-child{border-bottom:none;}
+.nd-event-row-date{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.25em;color:var(--pink);margin-bottom:0.25rem;text-transform:uppercase;}
+.nd-event-row-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;text-transform:uppercase;color:var(--white);margin-bottom:0.15rem;}
+.nd-event-row-sub{font-family:'Inter',sans-serif;font-size:0.7rem;color:var(--grey);}
+
+/* CYAN SPOT for Ronnie Scott's */
+.nd-spot.cyan .nd-spot-type{color:var(--cyan);}
+.nd-spot.cyan::before{background:var(--cyan);}
+
+/* PRACTICAL */
+.nd-prac-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);margin-top:2rem;}
+.nd-prac-item{background:var(--bg2);padding:1.5rem;}
+.nd-prac-label{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--pink);margin-bottom:0.5rem;}
+.nd-prac-val{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;letter-spacing:0.02em;}
+.nd-prac-note{font-family:'Inter',sans-serif;font-size:0.72rem;color:var(--grey);line-height:1.5;}
+
+/* UNLOCKING LIST */
+.nd-unlock-banner{background:rgba(255,0,100,0.04);border:1px solid var(--border-pink);padding:0.9rem 1.2rem;margin-bottom:1px;display:flex;align-items:center;gap:1.5rem;}
+.nd-unlock-label{font-family:'Space Grotesk',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--pink);white-space:nowrap;}
+.nd-unlock-text{font-family:'Inter',sans-serif;font-size:0.72rem;color:var(--dimgrey);font-style:italic;}
+
+/* SHOPPING */
+.nd-shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:1rem;}
+
+/* BIG QUOTE */
+.nd-quote{background:var(--bg2);padding:5rem 2.5rem;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.nd-quote::before{content:'"';position:absolute;font-family:'Syne',sans-serif;font-size:25rem;font-weight:800;color:rgba(255,0,100,0.03);top:50%;left:50%;transform:translate(-50%,-50%);line-height:1;pointer-events:none;}
+.nd-quote-text{font-family:'Syne',sans-serif;font-weight:400;font-size:clamp(1.3rem,3vw,2rem);color:var(--white);max-width:700px;margin:0 auto;line-height:1.4;position:relative;font-style:italic;}
+.nd-quote-attr{font-family:'Space Grotesk',sans-serif;font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--pink);margin-top:2rem;}
+
+/* FOOTER */
+footer{background:var(--bg);padding:4rem 2.5rem;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;}
+.footer-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(4rem,10vw,8rem);text-transform:uppercase;letter-spacing:-0.03em;line-height:0.85;color:var(--white);}
+.footer-title span{color:var(--pink);display:block;font-size:0.6rem;font-weight:600;letter-spacing:0.4em;margin-bottom:1rem;}
+.footer-meta{text-align:right;}
+.footer-dates{font-family:'Space Grotesk',sans-serif;font-size:0.6rem;letter-spacing:0.2em;color:var(--dimgrey);text-transform:uppercase;line-height:2;}
+.footer-note{font-family:'Inter',sans-serif;font-size:0.68rem;color:var(--dimgrey);line-height:1.7;margin-top:1rem;}
+
+/* MUSIC BTN */
+#music-btn{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:44px;height:44px;background:var(--pink);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all 0.2s;box-shadow:0 0 20px rgba(255,0,100,0.3);}
+#music-btn:hover{box-shadow:0 0 30px rgba(255,0,100,0.5);transform:scale(1.05);}
+#music-toast{position:fixed;bottom:4.5rem;right:1.5rem;z-index:999;background:var(--bg2);border:1px solid var(--border-pink);padding:0.5rem 0.9rem;font-family:'Space Grotesk',sans-serif;font-size:0.5rem;letter-spacing:0.2em;color:var(--pink);opacity:0;transition:opacity 0.4s;pointer-events:none;white-space:nowrap;text-transform:uppercase;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:650px){
+  .hero-bottom{grid-template-columns:1fr;}
+  .nd-flight-row{grid-template-columns:60px 1fr;gap:0.8rem;}
+  .nd-flight-row .nd-flight-badge{grid-column:span 2;}
+  .nd-accom-grid,.nd-spots-grid,.nd-prac-grid,.nd-shop-grid{grid-template-columns:1fr;}
+  footer{grid-template-columns:1fr;}
+  .footer-meta{text-align:left;}
+  .nd-itin-row{grid-template-columns:60px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div style="display:flex;align-items:center;gap:0.8rem;">
+    <div class="nav-dot"></div>
+    <div class="nav-logo">London — July 2026</div>
+  </div>
+  <div class="nav-meta">24 Jul – 31 Jul &nbsp;·&nbsp; Two Travellers</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-glow-3"></div>
+  <div class="hero-tag">Travel Proposal — Summer 2026</div>
+  <div class="hero-title">LON<span>—</span>DON</div>
+  <div class="hero-bottom">
+    <p class="hero-desc">Two travellers. Gatwick arrivals. Faraday House, York Rise, Camden NW5. Seven nights of culture, architecture, open-fire kitchens, late-night clubs and early morning canals. London in July, lived properly.</p>
+    <div class="hero-stats">
+      <div><span class="hero-stat-num">07</span><span class="hero-stat-label">Nights</span></div>
+      <div><span class="hero-stat-num">LGW</span><span class="hero-stat-label">Airport</span></div>
+      <div><span class="hero-stat-num">NW5</span><span class="hero-stat-label">Camden</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">★ Carl Craig — Jazz Café · Fri 24 Jul</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">★ KOKO · Paranoid London · Sat 25 Jul</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">★ Ronnie Scott's · Late Show · Thu 30 Jul</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Fabric London</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Brat · Mayha · German Gymnasium · Le Pont de la Tour</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Village Underground Rooftop</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Electric Cinema · Notting Hill</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">★ Carl Craig — Jazz Café · Fri 24 Jul</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">★ KOKO · Paranoid London · Sat 25 Jul</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">★ Ronnie Scott's · Late Show · Thu 30 Jul</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Fabric London</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Brat · Mayha · German Gymnasium · Le Pont de la Tour</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Village Underground Rooftop</span>
+    <span class="ticker-item ticker-sep">·</span>
+    <span class="ticker-item">Electric Cinema · Notting Hill</span>
+    <span class="ticker-item ticker-sep">·</span>
+  </div>
+</div>
+
+<!-- TUBE STRIP -->
+<div class="nd-tube">
+  <div class="nd-tube-stop"><div class="nd-tube-dot"></div><div class="nd-tube-name">Milan MXP<br>T1 Departs</div></div>
+  <div class="nd-tube-stop"><div class="nd-tube-dot"></div><div class="nd-tube-name">Dubai DXB<br>T2 Departs</div></div>
+  <div class="nd-tube-stop"><div class="nd-tube-dot"></div><div class="nd-tube-name">Gatwick LGW<br>Both Arrive</div></div>
+  <div class="nd-tube-stop"><div class="nd-tube-dot dim"></div><div class="nd-tube-name">Gatwick<br>Express</div></div>
+  <div class="nd-tube-stop"><div class="nd-tube-dot dim"></div><div class="nd-tube-name">Victoria<br>Station</div></div>
+  <div class="nd-tube-stop"><div class="nd-tube-dot dim"></div><div class="nd-tube-name">Northern<br>Line</div></div>
+  <div class="nd-tube-stop"><div class="nd-tube-dot dest"></div><div class="nd-tube-name bright">Faraday House<br>Camden NW5 ★</div></div>
+</div>
+
+<!-- FLIGHTS -->
+<section class="nd-section reveal">
+  <div class="nd-eyebrow">01 — Flights</div>
+  <h2 class="nd-h2">Getting<br>to <span>London</span></h2>
+  <p class="nd-body">Both travellers fly independently into Gatwick Airport, where they meet before boarding the Gatwick Express together into the city.</p>
+
+  <div class="nd-flight-stack">
+    <div class="nd-flight-row">
+      <div class="nd-flight-badge">T1</div>
+      <div><div class="nd-flight-route">Milan → London</div><div class="nd-flight-sub">Malpensa (MXP) → Gatwick (LGW)</div></div>
+      <div class="nd-flight-detail"><strong>Airline</strong><span>British Airways / EasyJet / ITA</span><strong style="margin-top:0.4rem;">Date</strong><span>Thu 24 July 2026</span><strong style="margin-top:0.4rem;">Duration</strong><span>~2h 20min</span></div>
+      <div class="nd-flight-tag dim">Solo</div>
+    </div>
+    <div class="nd-flight-row">
+      <div class="nd-flight-badge">T2</div>
+      <div><div class="nd-flight-route">Dubai → London</div><div class="nd-flight-sub">Dubai (DXB) → Gatwick (LGW)</div></div>
+      <div class="nd-flight-detail"><strong>Airline</strong><span>Emirates EK 009</span><strong style="margin-top:0.4rem;">Date</strong><span>Thu 24 July 2026</span><strong style="margin-top:0.4rem;">Duration</strong><span>~7h 30min</span></div>
+      <div class="nd-flight-tag dim">Solo</div>
+    </div>
+    <div class="nd-flight-row" style="background:rgba(255,0,100,0.03);">
+      <div class="nd-flight-badge pink">Both ✦</div>
+      <div><div class="nd-flight-route">Meet at Gatwick</div><div class="nd-flight-sub">South Terminal · Arrivals Hall</div></div>
+      <div class="nd-flight-detail"><strong>Then</strong><span>Gatwick Express → Victoria</span><strong style="margin-top:0.4rem;">30 min</strong><span>Non-stop to Victoria</span><strong style="margin-top:0.4rem;">Then</strong><span>Victoria → Camden Town</span></div>
+      <div class="nd-flight-tag">Together ★</div>
+    </div>
+    <div class="nd-flight-row">
+      <div class="nd-flight-badge pink">Return</div>
+      <div><div class="nd-flight-route">London → Origins</div><div class="nd-flight-sub">Gatwick (LGW) → MXP / DXB</div></div>
+      <div class="nd-flight-detail"><strong>Date</strong><span>Fri 31 July 2026</span><strong style="margin-top:0.4rem;">T1</strong><span>LGW → Milan MXP</span><strong style="margin-top:0.4rem;">T2</strong><span>LGW → Dubai DXB</span></div>
+      <div class="nd-flight-tag cyan">31 Jul</div>
+    </div>
+  </div>
+
+  <div class="nd-ge">
+    <div class="nd-ge-icon">🚂</div>
+    <div>
+      <div class="nd-ge-label">Gatwick Express — First Thing You Do Together</div>
+      <div class="nd-ge-desc">Non-stop Gatwick South Terminal to London Victoria. No stops, no faff. Buy tickets at the station or at gatwickexpress.com — return saves money. From Victoria: Victoria line to Warren Street, or Northern line direct to Camden Town (~30 min).</div>
+    </div>
+    <div class="nd-ge-time">30'<br><span style="font-size:0.55rem;font-weight:300;color:var(--dimgrey);letter-spacing:0.1em;">MIN</span></div>
+  </div>
+</section>
+
+<hr class="nd-rule">
+
+<!-- ACCOMMODATION -->
+<section class="nd-section reveal">
+  <div class="nd-eyebrow">02 — Where You Stay</div>
+  <h2 class="nd-h2">Faraday<br><span>House</span></h2>
+  <p class="nd-body">A beautifully curated Airbnb on York Rise, Camden — hosted by Jesse. All-white interiors, bouclé sofas, cane furniture, marble kitchen, abstract wall art and herringbone floors. The kind of flat that makes London feel like yours.</p>
+
+  <!-- Flat illustration -->
+  <div class="nd-accom-hero">
+    <svg class="nd-accom-svg" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+      <rect width="900" height="220" fill="#0F0F0F"/>
+      <rect x="0" y="198" width="900" height="2" fill="#1A1A1A"/>
+      <!-- Floor lines -->
+      <g stroke="#1A1A1A" stroke-width="0.5">
+        <line x1="0" y1="198" x2="900" y2="198"/>
+        <line x1="50" y1="198" x2="70" y2="220"/><line x1="80" y1="198" x2="100" y2="220"/>
+        <line x1="120" y1="198" x2="140" y2="220"/><line x1="160" y1="198" x2="180" y2="220"/>
+        <line x1="250" y1="198" x2="270" y2="220"/><line x1="320" y1="198" x2="340" y2="220"/>
+        <line x1="450" y1="198" x2="470" y2="220"/><line x1="560" y1="198" x2="580" y2="220"/>
+      </g>
+      <!-- Sofa -->
+      <rect x="180" y="148" width="190" height="52" rx="10" fill="#1A1A1A" stroke="#2A2A2A" stroke-width="1"/>
+      <rect x="185" y="146" width="180" height="14" rx="6" fill="#222222" stroke="#2A2A2A" stroke-width="1"/>
+      <rect x="180" y="148" width="18" height="52" rx="5" fill="#222222"/>
+      <rect x="352" y="148" width="18" height="52" rx="5" fill="#222222"/>
+      <!-- Cane chair -->
+      <rect x="410" y="152" width="52" height="46" rx="3" fill="#2A1E10" stroke="#3A2A15" stroke-width="1"/>
+      <rect x="415" y="145" width="42" height="12" rx="2" fill="#3A2A15"/>
+      <line x1="415" y1="198" x2="412" y2="215" stroke="#4A3020" stroke-width="2"/>
+      <line x1="458" y1="198" x2="461" y2="215" stroke="#4A3020" stroke-width="2"/>
+      <!-- Side table -->
+      <ellipse cx="490" cy="182" rx="18" ry="7" fill="#2A2A2A"/>
+      <rect x="486" y="182" width="8" height="16" fill="#2A2A2A"/>
+      <!-- Plant -->
+      <ellipse cx="520" cy="158" rx="16" ry="20" fill="#1A2A12" opacity="0.9"/>
+      <ellipse cx="510" cy="150" rx="10" ry="14" fill="#152210"/>
+      <ellipse cx="532" cy="152" rx="9" ry="13" fill="#1E3018"/>
+      <rect x="516" y="175" width="8" height="10" rx="2" fill="#1A1008"/>
+      <!-- Neon glow hint on plant -->
+      <ellipse cx="520" cy="158" rx="16" ry="20" fill="none" stroke="rgba(0,200,255,0.1)" stroke-width="1"/>
+      <!-- Wall art 1 - abstract lines -->
+      <rect x="50" y="35" width="65" height="85" rx="1" fill="#111111" stroke="#222222" stroke-width="1"/>
+      <path d="M68,55 Q85,50 97,68 Q108,85 82,94 Q62,104 74,114" stroke="rgba(255,0,100,0.6)" stroke-width="1.5" fill="none"/>
+      <!-- Wall art 2 - geometric black/white -->
+      <rect x="590" y="30" width="75" height="95" rx="1" fill="#111111" stroke="#222222" stroke-width="1"/>
+      <circle cx="627" cy="72" r="22" fill="#1A1A1A"/>
+      <circle cx="627" cy="90" r="16" fill="#111111"/>
+      <rect x="607" y="48" width="40" height="28" rx="1" fill="rgba(255,0,100,0.15)"/>
+      <!-- Window with pink glow -->
+      <rect x="720" y="28" width="115" height="145" fill="#0A1218" stroke="#1A2030" stroke-width="1"/>
+      <line x1="777" y1="28" x2="777" y2="173" stroke="#1A2030" stroke-width="1"/>
+      <line x1="720" y1="100" x2="835" y2="100" stroke="#1A2030" stroke-width="1"/>
+      <rect x="720" y="28" width="15" height="145" fill="#141414" opacity="0.8"/>
+      <rect x="820" y="28" width="15" height="145" fill="#141414" opacity="0.8"/>
+      <rect x="720" y="28" width="115" height="145" fill="rgba(0,200,255,0.02)"/>
+      <text x="450" y="212" text-anchor="middle" fill="#2A2A2A" font-size="9" letter-spacing="8" font-family="'Space Grotesk',sans-serif">FARADAY HOUSE · YORK RISE · CAMDEN · NW5</text>
+    </svg>
+  </div>
+
+  <div class="nd-accom-grid">
+    <div class="nd-accom-cell dark"><div class="nd-accom-label">Check-in</div><div class="nd-accom-val">Fri 24 July</div><div class="nd-accom-sub">From 15:00 · Hosted by Jesse</div></div>
+    <div class="nd-accom-cell dark"><div class="nd-accom-label">Check-out</div><div class="nd-accom-val">Fri 31 July</div><div class="nd-accom-sub">By 11:00 · 7 nights</div></div>
+    <div class="nd-accom-cell dark"><div class="nd-accom-label">Duration</div><div class="nd-accom-val">7 Nights</div><div class="nd-accom-sub">24 Jul 15:00 → 31 Jul 11:00</div></div>
+    <div class="nd-accom-cell"><div class="nd-accom-label">Address</div><div class="nd-accom-val">York Rise</div><div class="nd-accom-sub">Faraday House · Camden · NW5<br>15 min walk to Camden Market</div></div>
+    <div class="nd-accom-cell"><div class="nd-accom-label">Nearest Tube</div><div class="nd-accom-val">Camden Town</div><div class="nd-accom-sub">Northern line · 5 min walk · Or taxi from Victoria ~25 min</div></div>
+    <div class="nd-accom-cell"><div class="nd-accom-label">The Flat</div><div class="nd-accom-val">Minimalist</div><div class="nd-accom-sub">Bouclé sofas · Cane chairs · Marble kitchen · Abstract art · Herringbone floors</div></div>
+  </div>
+</section>
+
+<hr class="nd-rule">
+
+<!-- ITINERARY -->
+<section class="nd-section reveal">
+  <div class="nd-eyebrow">03 — Itinerary</div>
+  <h2 class="nd-h2">Seven days<br>in the <span>city</span></h2>
+  <p class="nd-body" style="margin-bottom:2.5rem;">Eight days. Two confirmed club nights. One jazz institution. Seven neighbourhoods. Zero wasted mornings.</p>
+
+  <div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">01</div>
+        <div class="nd-itin-date">Fri · 24 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">Arrival — Gatwick to Camden</div>
+        <p class="nd-itin-body">Both fly in independently and meet at Gatwick arrivals. Board the <strong>Gatwick Express</strong> to Victoria (30 min), then Northern line to Camden Town. Check in from 15:00. Walk along <strong>Regent's Canal</strong> to Camden Market. Dinner at <strong>Chin Chin Labs</strong>. Then — because London doesn't wait — straight to the <strong>Jazz Café</strong> for <strong>Carl Craig All Night Long</strong>. Detroit techno legend, all night, five minutes from the flat. The perfect first night.</p>
+        <div class="nd-event-box">
+          <div class="nd-event-star">★ CONFIRMED EVENT</div>
+          <div class="nd-event-name">Carl Craig — All Night Long</div>
+          <div class="nd-event-venue">Jazz Café · Camden · Fri 24 Jul · Book at thejazzcafe.com</div>
+        </div>
+        <div class="nd-tags"><span class="nd-tag">Arrival Day</span><span class="nd-tag">Gatwick Express</span><span class="nd-tag">Regent's Canal</span><span class="nd-tag">Carl Craig · Jazz Café</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">02</div>
+        <div class="nd-itin-date">Sat · 25 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">East London — Markets, Streets & KOKO</div>
+        <p class="nd-itin-body">Morning: <strong>Brick Lane</strong> — bagels, vintage shops, Beigel Bake. Then <strong>Spitalfields Market</strong> and a walk through Shoreditch. Stop at the newly opened <strong>Village Underground Rooftop</strong> — Shoreditch's most talked-about new space, built on top of the venue with decommissioned train carriages on the roof. Afternoon: <strong>Urban Revivo</strong> on Neal Street, Covent Garden — the fashion store everyone is saving to their London lists. Evening: dinner at <strong>Brat</strong> by Tomos Parry — open-fire Basque cooking, txakoli wine, one of the city's most exciting restaurants. Book well ahead. Night: <strong>KOKO — Acid House Palace: Paranoid London (Live)</strong>. Sat 25 Jul, 22:00–05:00. Iconic Camden venue, serious lineup. 19+ bring photo ID.</p>
+        <div class="nd-event-box">
+          <div class="nd-event-star">★ CONFIRMED EVENT</div>
+          <div class="nd-event-name">Acid House Palace: Paranoid London (Live)</div>
+          <div class="nd-event-venue">KOKO · Camden · Sat 25 Jul · 22:00–05:00 · 19+ bring photo ID · seetickets.com</div>
+        </div>
+        <div class="nd-tags"><span class="nd-tag">Brick Lane</span><span class="nd-tag">Village Underground Rooftop</span><span class="nd-tag">Urban Revivo · Neal St</span><span class="nd-tag">Brat Restaurant</span><span class="nd-tag">KOKO · Paranoid London</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">03</div>
+        <div class="nd-itin-date">Sun · 26 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">Recovery, Primrose Hill & Electric Cinema</div>
+        <p class="nd-itin-body">Slow morning at the flat — coffee, croissants, morning light. Late brunch at <strong>Greenberry Café</strong> on Regent's Park Road. Walk up <strong>Primrose Hill</strong> for the best panoramic view of London. Afternoon: stroll through <strong>Regent's Park</strong> and visit the open-air theatre (check What's On). Evening: cocktails at <strong>Nightjar</strong> (book ahead) then a late film at the <strong>Electric Cinema, Notting Hill</strong> — London's most atmospheric vintage cinema. Armchair seats, table lamps, drinks delivered to you. London's coolest night in.</p>
+        
+        <div class="nd-tags"><span class="nd-tag">Primrose Hill</span><span class="nd-tag">Regent's Park</span><span class="nd-tag">Greenberry Café</span><span class="nd-tag">Nightjar</span><span class="nd-tag">Electric Cinema · Notting Hill</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">04</div>
+        <div class="nd-itin-date">Mon · 27 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">Tate Modern, White Cube, Borough Market & Le Pont de la Tour</div>
+        <p class="nd-itin-body">Morning: <strong>Tate Modern</strong> (free) and the Turbine Hall. Cross the Millennium Bridge. Afternoon: lunch at <strong>Borough Market</strong>, then a short walk to <strong>White Cube Bermondsey</strong> — one of the world's most respected contemporary art galleries, housed in a vast industrial space on Bermondsey Street. Free entry, always a major exhibition on. Walk the Southbank to <strong>Butler's Wharf</strong> for pre-dinner drinks at <strong>Dandelyan / Lyaness</strong> at Sea Containers, then dinner at <strong>Le Pont de la Tour</strong> — Tower Bridge lit up directly in front of you.</p>
+        
+        <div class="nd-tags"><span class="nd-tag">Tate Modern</span><span class="nd-tag">White Cube Bermondsey</span><span class="nd-tag">Borough Market</span><span class="nd-tag">Southbank</span><span class="nd-tag">Le Pont de la Tour</span><span class="nd-tag">Dandelyan / Lyaness</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">05</div>
+        <div class="nd-itin-date">Tue · 28 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">Notting Hill, V&A & Quaglino's</div>
+        <p class="nd-itin-body">Morning: <strong>Portobello Road Market</strong> — antiques, vintage, street food. Coffee at <strong>Electric Diner</strong>. Browse <strong>MG &amp; Co (Matilda Goad)</strong> on Ebury Street — hardware, homewares and lighting in a beautiful Belgravia shopfront. Afternoon: <strong>V&amp;A Museum</strong> (free). Chelsea walk. Dinner: <strong>Gold</strong> or <strong>Zephyr</strong> in Notting Hill (from the @unlockingldn list — great taste, no commitment required). Late: <strong>Quaglino's</strong> in Mayfair for cocktails and live music — the grand Art Deco dining room with a DJ that takes over after midnight.</p>
+        
+        <div class="nd-tags"><span class="nd-tag">Portobello Road</span><span class="nd-tag">MG & Co · Ebury St</span><span class="nd-tag">V&A Museum</span><span class="nd-tag">Gold / Zephyr · Notting Hill</span><span class="nd-tag">Quaglino's · Mayfair</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">06</div>
+        <div class="nd-itin-date">Wed · 29 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">King's Cross, German Gymnasium & Mayha</div>
+        <p class="nd-itin-body">Morning: <strong>Coal Drops Yard</strong>, King's Cross — Thomas Heatherwick's extraordinary shopping destination on the canal. Granary Square waterfront. Lunch at the <strong>German Gymnasium</strong> — one of London's most spectacular dining rooms, a soaring Victorian gymnasium converted into a Grand Café with European cooking, excellent cocktails and a terrace on the square. Afternoon: <strong>Islington, Upper Street</strong> and <strong>Camden Passage</strong> antiques. Evening: dinner at <strong>Mayha</strong>, Marylebone — London's omakase counter of the moment. Intimate, beautiful, extraordinary cooking. Book weeks ahead. Late: <strong>XOYO</strong>.</p>
+        
+        <div class="nd-tags"><span class="nd-tag">Coal Drops Yard</span><span class="nd-tag">German Gymnasium</span><span class="nd-tag">Islington</span><span class="nd-tag">Mayha · Marylebone</span><span class="nd-tag">XOYO</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">07</div>
+        <div class="nd-itin-date">Thu · 30 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">Hackney Wick & Ronnie Scott's</div>
+        <p class="nd-itin-body">Morning: coffee at <strong>Climpson & Sons</strong> on Broadway Market — London's best independent roasters. <strong>Broadway Market Saturday</strong> (check — may be Sat, adjust days). Walk <strong>London Fields</strong> and along the <strong>Regent's Canal</strong> back toward Camden. Afternoon: <strong>Hackney Wick</strong> — studios, street art, the Olympic legacy neighbourhood. Evening: head to Soho for dinner, then a night at <strong>Ronnie Scott's</strong> on Frith Street — the greatest jazz club in the world. Opened 1959, two shows nightly, red-lit room, world-class musicians every single night. Book the late show (23:30) and stay until 03:00. A perfect penultimate London night.</p>
+        <div class="nd-event-box">
+          <div class="nd-event-star">★ CONFIRMED EVENT</div>
+          <div class="nd-event-name">Ronnie Scott's — Late Show 23:30</div>
+          <div class="nd-event-venue">47 Frith St · Soho · W1 · Late bar until 03:00 · ronniescotts.co.uk</div>
+        </div>
+        <div class="nd-tags"><span class="nd-tag">Broadway Market</span><span class="nd-tag">London Fields</span><span class="nd-tag">Hackney Wick</span><span class="nd-tag">Ronnie Scott's · Soho</span></div>
+      </div>
+    </div>
+<div class="nd-itin-row">
+      <div class="nd-itin-day">
+        <div class="nd-itin-num">08</div>
+        <div class="nd-itin-date">Fri · 31 Jul</div>
+      </div>
+      <div class="nd-itin-content">
+        <div class="nd-itin-title">Last Morning — Departure</div>
+        <p class="nd-itin-body">Check out by 11:00. Last coffee on the Regent's Canal. Take the Northern line to Victoria, then the <strong>Gatwick Express</strong> (allow 2h before your flights). T1 departs for Milan, T2 departs for Dubai. London will wait for you to come back.</p>
+        
+        <div class="nd-tags"><span class="nd-tag">Check-out by 11:00</span><span class="nd-tag">Gatwick Express from Victoria</span><span class="nd-tag">T1 → Milan · T2 → Dubai</span></div>
+      </div>
+    </div>
+</section>
+
+<hr class="nd-rule">
+
+<!-- NIGHTLIFE -->
+<section class="nd-section-full reveal" style="background:var(--bg2);">
+  <div class="nd-section" style="padding-top:3rem;padding-bottom:3rem;">
+    <div class="nd-eyebrow">04 — After Dark</div>
+    <h2 class="nd-h2">London<br><span>after dark</span></h2>
+    <p class="nd-body" style="margin-bottom:2.5rem;">London's music and club scene is unlike anywhere on earth — raw, diverse and genuinely world-class. Here's what the city sounds like.</p>
+
+    <!-- Confirmed events -->
+    <div class="nd-events-banner">
+      <div class="nd-events-header">★ Your Confirmed Events — Buy Tickets Now</div>
+      <div class="nd-event-row">
+        <div class="nd-event-row-date">Fri 24 Jul · Jazz Café · Camden High Street</div>
+        <div class="nd-event-row-title">Carl Craig — All Night Long</div>
+        <div class="nd-event-row-sub">Detroit Techno Legend plays all night on your arrival evening. Five minutes from Faraday House. Book at thejazzcafe.com</div>
+      </div>
+      <div class="nd-event-row">
+        <div class="nd-event-row-date">Sat 25 Jul · KOKO · Camden High Road · 22:00–05:00</div>
+        <div class="nd-event-row-title">Acid House Palace: Paranoid London (Live)</div>
+        <div class="nd-event-row-sub">Grade II listed Victorian music hall. 19+ — bring photo ID. Tickets at seetickets.com</div>
+      </div>
+      <div class="nd-event-row" style="border-color:rgba(0,200,255,0.1);">
+        <div class="nd-event-row-date" style="color:var(--cyan);">Thu 30 Jul · 47 Frith Street · Soho · W1</div>
+        <div class="nd-event-row-title">Ronnie Scott's Jazz Club — Late Show</div>
+        <div class="nd-event-row-sub">Late show 23:30 · Bar until 03:00 · ronniescotts.co.uk · Book well ahead</div>
+      </div>
+    </div>
+
+    <div class="nd-spots-grid">
+      <div class="nd-spot">
+        <div class="nd-spot-type">Detroit Techno · Fri 24 Jul ★</div>
+        <div class="nd-spot-name">Jazz Café — Carl Craig</div>
+        <p class="nd-spot-desc">Camden's legendary live music venue hosting Detroit techno icon Carl Craig for an all-night set on your very first evening. The intimate balcony, the sound system, the crowd. This is why you come to London.</p>
+        <div class="nd-spot-meta">📍 Camden High St, NW1 · Fri 24 Jul from 22:00</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Acid House · Sat 25 Jul ★</div>
+        <div class="nd-spot-name">KOKO — Paranoid London</div>
+        <p class="nd-spot-desc">Acid House Palace at one of London's most spectacular venues. Grade II listed Victorian music hall turned world-class club. Paranoid London live — a genuine London cultural moment. 19+, bring ID.</p>
+        <div class="nd-spot-meta">📍 Camden High Rd, NW1 · Sat 25 Jul · 22:00–05:00</div>
+      </div>
+      <div class="nd-spot cyan">
+        <div class="nd-spot-type">Jazz Institution · Soho · Since 1959 ★</div>
+        <div class="nd-spot-name">Ronnie Scott's</div>
+        <p class="nd-spot-desc">There is no jazz club on earth with more history or atmosphere. Red-lit room, world-class musicians every single night, two shows nightly. Not optional. A night at Ronnie's is one of the great London experiences. Book weeks ahead.</p>
+        <div class="nd-spot-meta">📍 47 Frith St · Soho · W1 · Late show 23:30 · Bar until 03:00</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Underground Club · Farringdon</div>
+        <div class="nd-spot-name">Fabric London</div>
+        <p class="nd-spot-desc">London's most iconic club. Three rooms, bodysonic dancefloor, relentless sound system. The best drum & bass and techno in the world on any given Friday. Dress down. Arrive late. Stay later.</p>
+        <div class="nd-spot-meta">📍 Charterhouse St, EC1 · Fri & Sat from 23:00</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">New Rooftop · Shoreditch · Opened July 2026</div>
+        <div class="nd-spot-name">Village Underground Rooftop</div>
+        <p class="nd-spot-desc">Decommissioned tube carriages on the roof, graffiti walls, the Shoreditch skyline. Opened July 2026 — one of the most talked-about new spaces in London this summer. villageunderground.co.uk to register.</p>
+        <div class="nd-spot-meta">📍 Holywell Lane, EC2 · Open from July 2026</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Prohibition Bar · Old Street</div>
+        <div class="nd-spot-name">Nightjar</div>
+        <p class="nd-spot-desc">A 1920s speakeasy buried beneath Old Street. Live jazz, prohibition-era cocktails and one of London's most atmospheric interiors. Book a table — walk-ins almost never get in.</p>
+        <div class="nd-spot-meta">📍 Old Street, EC1 · Tue–Sat from 18:00 · Book ahead</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Vintage Cinema · Notting Hill</div>
+        <div class="nd-spot-name">Electric Cinema</div>
+        <p class="nd-spot-desc">The coolest cinema in London. Armchair leather seats, table lamps, cocktails delivered during the film. Arrive early for drinks at the Electric Bar. Check listings at electriccinema.co.uk.</p>
+        <div class="nd-spot-meta">📍 Portobello Road, W11 · Daily · Book ahead</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Art Deco · Live Music · Mayfair</div>
+        <div class="nd-spot-name">Quaglino's</div>
+        <p class="nd-spot-desc">The grand Art Deco dining room. Live music at dinner transitions into DJ sets after midnight. Beautiful room, beautiful food, beautiful crowd. One of the most cinematic evenings in London.</p>
+        <div class="nd-spot-meta">📍 Bury St, SW1 · Daily from 17:00 · Late licence</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">World's Best Bar · Southbank</div>
+        <div class="nd-spot-name">Dandelyan / Lyaness</div>
+        <p class="nd-spot-desc">Ryan Chetiyawardana's Southbank bar at Sea Containers has held the title of World's Best Bar. Creative botanical cocktails, stunning Thames views, effortlessly cool. Book for 18:00.</p>
+        <div class="nd-spot-meta">📍 Sea Containers, Southbank SE1 · Daily from 17:00</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Club · Islington</div>
+        <div class="nd-spot-name">XOYO</div>
+        <p class="nd-spot-desc">Two floors, serious sound and rotating international residents. Less pretentious than some, better music than most. Midweek warehouse parties that punch way above their weight.</p>
+        <div class="nd-spot-meta">📍 Cowper St, EC2 · Thu–Sat from 22:00</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Rooftop · East London</div>
+        <div class="nd-spot-name">Netil360</div>
+        <p class="nd-spot-desc">London Fields' most beloved rooftop bar. Cheap drinks, panoramic East London views, street food and the best sunsets in E8. No pretension, no dress code — just a great time on a good roof.</p>
+        <div class="nd-spot-meta">📍 Westgate St, E8 · Daily from 12:00</div>
+      </div>
+      <div class="nd-spot cyan">
+        <div class="nd-spot-type">Rooftop Bar & Grill · Shoreditch</div>
+        <div class="nd-spot-name">Boundary Hotel Rooftop</div>
+        <p class="nd-spot-desc">Sir Terence Conran's rooftop bar and grill perched above Boundary London in the heart of Shoreditch. Retractable roof, open-air terrace, excellent cocktails and a menu that punches well above a typical rooftop. One of East London's most reliably great evenings — book ahead in summer.</p>
+        <div class="nd-spot-meta">📍 2–4 Boundary St, Shoreditch, E2 · Daily from 12:00 · boundaryrooftop.com</div>
+      </div>
+      <div class="nd-spot cyan">
+        <div class="nd-spot-type">Warehouse Club · East London</div>
+        <div class="nd-spot-name">Fold — Canning Town</div>
+        <p class="nd-spot-desc">East London's warehouse club. Serious techno and electronic music in a raw industrial space. If you want one last proper late night before departure, this is the one.</p>
+        <div class="nd-spot-meta">📍 Canning Town, E16 · Fri & Sat from 22:00</div>
+      </div>
+      <div class="nd-spot cyan">
+        <div class="nd-spot-type">Rooftop Bar · St Paul's</div>
+        <div class="nd-spot-name">Madison's — St Paul's</div>
+        <p class="nd-spot-desc">One of London's most breathtaking rooftop bars, perched directly opposite St Paul's Cathedral with uninterrupted 360° views across the city. Brilliant cocktails, a rooftop grill and a terrace that comes alive at sunset. The view of the Tate Modern across the Thames and the dome lit up at dusk is genuinely unmissable. Book ahead — it fills fast in summer.</p>
+        <div class="nd-spot-meta">📍 One New Change, St Paul's, EC4 · Daily from 12:00 · madisonlondon.net</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="nd-section reveal">
+  <div class="nd-eyebrow">05 — Where to Eat</div>
+  <h2 class="nd-h2">Eating<br><span>London</span></h2>
+  <p class="nd-body">London's food scene is one of the world's best — from open-fire Basque kitchens to £2.50 bagels at 3am. Here is your curated list.</p>
+
+  <div class="nd-unlock-banner" style="margin-top:2rem;">
+    <div class="nd-unlock-label">@unlockingldn picks</div>
+    <div class="nd-unlock-text">"Great taste, no commitment required" — Lagana · Bottarga · Nina · Zephyr · Gold · Dinings · Fenix</div>
+  </div>
+
+  <div class="nd-spots-grid" style="margin-top:1px;">
+    <div class="nd-spot">
+      <div class="nd-spot-type">Omakase Counter · Marylebone</div>
+      <div class="nd-spot-name">Mayha</div>
+      <p class="nd-spot-desc">London's most talked-about omakase counter. A curved wooden bar, extraordinary ceiling installation and a kitchen that has the whole city talking. Book weeks ahead — extremely limited tables.</p>
+      <div class="nd-spot-meta">📍 Marylebone · £120–180pp · mayha.co.uk</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Open Fire · Basque · Shoreditch</div>
+      <div class="nd-spot-name">Brat</div>
+      <p class="nd-spot-desc">Chef Tomos Parry's celebrated Basque-Welsh fire restaurant. Whole turbot over coals, txakoli wine, the best bread in London. One of the city's most exciting restaurants for years. Book at brat.london.</p>
+      <div class="nd-spot-meta">📍 Redchurch St, E1 · £60–90pp · Book ahead</div>
+    </div>
+    <div class="nd-spot cyan">
+      <div class="nd-spot-type">Grand Café · King's Cross</div>
+      <div class="nd-spot-name">German Gymnasium</div>
+      <p class="nd-spot-desc">London's most spectacular dining room — a soaring Victorian gymnasium (1865) with original ironwork, gallery seating and a buzzing Grand Café atmosphere. European classics, cocktails, terrace on Granary Square.</p>
+      <div class="nd-spot-meta">📍 King's Cross, N1C · £40–65pp · germangymnasium.com</div>
+    </div>
+    <div class="nd-spot cyan">
+      <div class="nd-spot-type">French Brasserie · Butler's Wharf</div>
+      <div class="nd-spot-name">Le Pont de la Tour</div>
+      <p class="nd-spot-desc">Terence Conran's iconic Thames-side French brasserie with Tower Bridge directly in front of you. Plateau de fruits de mer, classic steak frites, exceptional wine list. One of London's most romantic dinner settings.</p>
+      <div class="nd-spot-meta">📍 Butler's Wharf, SE1 · £70–100pp · lepontdelatour.co.uk</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Art Deco · Live Music · Mayfair</div>
+      <div class="nd-spot-name">Quaglino's</div>
+      <p class="nd-spot-desc">The grand Art Deco dining room in Mayfair. Live music at dinner, DJ after midnight. Beautiful people, beautiful room. One of the most cinematic evenings you can have in London.</p>
+      <div class="nd-spot-meta">📍 Bury St, SW1 · £60–90pp · quaglinos.co.uk</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Modern Middle Eastern · Islington</div>
+      <div class="nd-spot-name">Ottolenghi Islington</div>
+      <p class="nd-spot-desc">The original Ottolenghi — tiny, beautiful, queues out the door. Remarkable vegetable dishes, meringue cakes in the window, ingredients you can't identify but will dream about. Lunch or early dinner only.</p>
+      <div class="nd-spot-meta">📍 Upper Street, N1 · £25–45pp · Arrive early</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Open Fire · Thai · Soho</div>
+      <div class="nd-spot-name">Kiln</div>
+      <p class="nd-spot-desc">Thai-influenced open-fire cooking on Brewer Street. Counter seats facing the clay pots and charcoal grill. Some of the most exciting cooking in London right now. Walk-in only — arrive at 17:30.</p>
+      <div class="nd-spot-meta">📍 Brewer Street, W1 · £30–50pp · Walk-in only</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Market Lunch · Southwark</div>
+      <div class="nd-spot-name">Borough Market</div>
+      <p class="nd-spot-desc">The greatest food market in Britain. Monmouth Coffee, Neal's Yard Dairy, Kappacasein toasted cheese sandwiches, Comptoir Gourmand pastries. Arrive hungry. Leave with cheese. Open since 1276.</p>
+      <div class="nd-spot-meta">📍 Borough, SE1 · Mon–Sat · Free entry · £5–25</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Notting Hill · @unlockingldn Pick</div>
+      <div class="nd-spot-name">Gold / Zephyr</div>
+      <p class="nd-spot-desc">Two of Notting Hill's best neighbourhood restaurants right now from the @unlockingldn curated list. Both worth booking for a relaxed evening with excellent cooking and good wine in the prettiest postcode in London.</p>
+      <div class="nd-spot-meta">📍 Notting Hill, W11 · £40–70pp · Book ahead</div>
+    </div>
+    <div class="nd-spot cyan">
+      <div class="nd-spot-type">24 Hours · East London · Since 1977</div>
+      <div class="nd-spot-name">Beigel Bake, Brick Lane</div>
+      <p class="nd-spot-desc">Salt beef bagel at 3am after KOKO. Open 24 hours since 1977. One of the last truly unchanged things in a city that never stops reinventing itself. £2.50. Cash only. Non-negotiable.</p>
+      <div class="nd-spot-meta">📍 Brick Lane, E1 · Open 24h · Cash only · ~£3</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Coffee · London Fields</div>
+      <div class="nd-spot-name">Climpson & Sons</div>
+      <p class="nd-spot-desc">London's most beloved independent roaster. The Broadway Market original — dark interior, serious espresso. The flat white here is one of the best in the city. No laptops after noon.</p>
+      <div class="nd-spot-meta">📍 Broadway Market, E8 · Daily from 07:30</div>
+    </div>
+    <div class="nd-spot">
+      <div class="nd-spot-type">Michelin Starred · Chelsea</div>
+      <div class="nd-spot-name">Medlar</div>
+      <p class="nd-spot-desc">Understated Michelin-starred Modern European on the King's Road. Flawless cooking, exceptional wine list, no fuss. The kind of dinner that proves London restaurants compete with anyone in the world.</p>
+      <div class="nd-spot-meta">📍 King's Road, SW10 · £80–120pp · Book ahead</div>
+    </div>
+  </div>
+
+  <!-- Shopping -->
+  <div style="margin-top:3rem;">
+    <div class="nd-eyebrow">Shopping</div>
+    <h3 style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem;letter-spacing:-0.01em;">While you're <span style="color:var(--pink);">in the city</span></h3>
+    <div class="nd-shop-grid">
+      <div class="nd-spot">
+        <div class="nd-spot-type">Fashion · Covent Garden</div>
+        <div class="nd-spot-name">Urban Revivo</div>
+        <p class="nd-spot-desc">The fashion store everyone is saving to their London lists. 8–12 Neal Street — beautifully curated womenswear that sits somewhere between Zara and COS but with more personality. Save this one.</p>
+        <div class="nd-spot-meta">📍 8–12 Neal St, WC2 · Mon–Sat 10:00–20:00</div>
+      </div>
+      <div class="nd-spot">
+        <div class="nd-spot-type">Homewares · Belgravia</div>
+        <div class="nd-spot-name">MG & Co (Matilda Goad)</div>
+        <p class="nd-spot-desc">Matilda Goad's beautiful hardware and homewares boutique on Ebury Street. Lighting, ceramics, kitchen objects and things you didn't know you needed until now. One of London's most charming independent shops.</p>
+        <div class="nd-spot-meta">📍 Ebury Street, SW1 · Mon–Fri 09:30–18:00 · Sat 10:00–17:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="nd-rule">
+
+<!-- PRACTICAL INFO -->
+<section class="nd-section reveal">
+  <div class="nd-eyebrow">06 — Essentials</div>
+  <h2 class="nd-h2">Good to<br><span>know</span></h2>
+  <div class="nd-prac-grid">
+    <div class="nd-prac-item">
+      <div class="nd-prac-label">🇮🇹 T1 — Italian Passport</div>
+      <div class="nd-prac-val">No Visa Required</div>
+      <div class="nd-prac-note">Italian (EU) passport — visa-free entry to the UK for up to 6 months. No ETA currently required for EU nationals. Check gov.uk before travel as rules may update.</div>
+    </div>
+    <div class="nd-prac-item">
+      <div class="nd-prac-label">🇬🇧 T2 — British Passport</div>
+      <div class="nd-prac-val">British Citizen</div>
+      <div class="nd-prac-note">British passport — right of abode in the UK. No visa, no restrictions, no time limit. Simply arrive. The UK is home.</div>
+    </div>
+    <div class="nd-prac-item">
+      <div class="nd-prac-label">Currency</div>
+      <div class="nd-prac-val">Pound Sterling</div>
+      <div class="nd-prac-note">Cards accepted almost everywhere — contactless standard. Avoid airport exchange. Monzo or Wise highly recommended. ATMs on every high street.</div>
+    </div>
+    <div class="nd-prac-item">
+      <div class="nd-prac-label">Getting Around</div>
+      <div class="nd-prac-val">Oyster / Tap</div>
+      <div class="nd-prac-note">Tap your contactless card on every bus and tube. Daily cap ~£8.50 zones 1–2. Black cabs are pricey but excellent. Uber for late nights.</div>
+    </div>
+    <div class="nd-prac-item">
+      <div class="nd-prac-label">Weather in July</div>
+      <div class="nd-prac-val">18–26°C</div>
+      <div class="nd-prac-note">London in late July is usually warm. Pack light layers — evenings cool quickly. A compact rain jacket is never a bad idea. Check BBC Weather daily.</div>
+    </div>
+    <div class="nd-prac-item">
+      <div class="nd-prac-label">Emergency</div>
+      <div class="nd-prac-val">999</div>
+      <div class="nd-prac-note">Police, ambulance, fire: 999. Non-emergency police: 101. NHS urgent: 111. Nearest A&E from Camden: University College Hospital, Euston Road.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="nd-quote">
+  <div class="nd-quote-text">"When a man is tired of London, he is tired of life — for there is in London all that life can afford."</div>
+  <div class="nd-quote-attr">Samuel Johnson, 1777</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-title">
+      <span>Two Travellers · July 2026</span>
+      LON<br><span style="color:var(--pink);font-size:inherit;display:block;">DON</span>
+    </div>
+  </div>
+  <div class="footer-meta">
+    <div class="footer-dates">
+      24 July — 31 July 2026<br>
+      Milan + Dubai → LGW → Camden → LGW<br>
+      Faraday House · York Rise · NW5
+    </div>
+    <div class="footer-note">Hosted by Jesse · Airbnb · Check-in 15:00 · Check-out 11:00<br>All transport times and costs are indicative.<br>Verify all bookings before travel.</div>
+  </div>
+</footer>
+
+<!-- MUSIC -->
+<!-- Hidden SoundCloud iframe -->
+<iframe id="sc-frame" width="1" height="1" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+  style="position:fixed;bottom:-999px;left:-999px;opacity:0;pointer-events:none;"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A665680523&color=%23FF0064&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
+</iframe>
+<div id="music-btn" onclick="toggleMusic()">🎵</div>
+<div id="music-toast">Tap anywhere to play music</div>
+
+<script>
+let playing = false;
+let started = false;
+
+setTimeout(() => {
+  const t = document.getElementById('music-toast');
+  if(t){t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',4000);}
+}, 1500);
+
+document.addEventListener('click', function once(e) {
+  if(!started && !e.target.closest('#music-btn')) {
+    started = true;
+    playMusic();
+    document.removeEventListener('click', once);
+  }
+});
+
+function playMusic() {
+  document.getElementById('sc-frame').src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A665680523&color=%23FF0064&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false";
+  playing = true;
+  setBtn(true);
+}
+
+function toggleMusic() {
+  if(!started) { started = true; playMusic(); }
+  else if(playing) {
+    document.getElementById('sc-frame').src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A665680523&color=%23FF0064&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false";
+    playing = false;
+    setBtn(false);
+  } else { playMusic(); }
+}
+
+function setBtn(isPlaying) {
+  const btn = document.getElementById('music-btn');
+  btn.textContent = isPlaying ? '🔊' : '🎵';
+  btn.style.boxShadow = isPlaying ? '0 0 30px rgba(255,0,100,0.6)' : '0 0 20px rgba(255,0,100,0.3)';
+}
+
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting) { setTimeout(()=>e.target.classList.add('visible'), i*60); obs.unobserve(e.target); }
+  });
+}, {threshold:0.07});
+reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
